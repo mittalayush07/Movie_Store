@@ -6,11 +6,14 @@ import About from './pages/About';
 import Movies from './pages/Movies';
 import Contact from './pages/Contact';
 import AppLayout from './components/layout/AppLayout';
+import { ErrorPage } from './pages/ErrorPage';
+import { GetMoviesData } from './api/GetAPIData';
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <AppLayout />,
+    errorElement: <ErrorPage />,
     children: [
       {
         path: "/",
@@ -23,6 +26,7 @@ const router = createBrowserRouter([
       {
         path: "movies",
         element: <Movies />,
+        loader: GetMoviesData,
       },
       {
         path: "contact",

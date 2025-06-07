@@ -1,4 +1,5 @@
 
+import { NavLink } from 'react-router-dom';
 import './card.css'
 
 export const Card = ({curMovie})=>{
@@ -12,7 +13,9 @@ export const Card = ({curMovie})=>{
                 </div>
                 <div className="ticket-container">
                     <div className="ticket__content">
-                        <button className="ticket__buy-btn">Watch now</button>
+                        <NavLink to={`/movies/${imdbID}`}>
+                            <button className="ticket__buy-btn">Watch now</button>
+                        </NavLink>                        
                     </div>
                 </div>
             </div>

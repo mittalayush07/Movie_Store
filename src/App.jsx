@@ -4,10 +4,12 @@ import './App.css'
 import Home from './pages/Home';
 import About from './pages/About';
 import Movies from './pages/Movies';
-import Contact from './pages/Contact';
+import Contact, { contactData } from './pages/Contact';
 import AppLayout from './components/layout/AppLayout';
 import { ErrorPage } from './pages/ErrorPage';
 import { GetMoviesData } from './api/GetAPIData';
+import { MovieDetails } from './components/UI/movieDetails';
+import { getMovieDetails } from './api/getMovieDetails';
 
 const router = createBrowserRouter([
   {
@@ -29,8 +31,14 @@ const router = createBrowserRouter([
         loader: GetMoviesData,
       },
       {
+        path: "/movies/:movieID",
+        element: <MovieDetails />,
+        loader: getMovieDetails,
+      },
+      {
         path: "contact",
         element: <Contact />,
+        action: contactData,
       },
       
     ],
